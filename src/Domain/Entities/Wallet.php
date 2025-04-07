@@ -4,7 +4,7 @@ namespace Domain\Entities;
 
 class Wallet {
     public function __construct(
-        public int $idUser,
+        public int $id_user,
         public float $balance
     ) {}
 

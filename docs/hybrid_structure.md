@@ -6,15 +6,17 @@ O projeto adota uma **estrutura híbrida**, sendo um MVC leve (baseado no Larave
 
 ---
 
+```
 app/
-├── Controllers/   ← Entrada HTTP
-├── Core/          ← Infra geral (Router, Session, DB)
-└── Views/         ← Renderização HTML
+│
+├── Controllers/    # Entrada HTTP
+├── Core/           # Infra geral (Router, Session, DB)
+├── Views/          # Renderização HTML
 src/
-├── Domain/        ← Entidades + regras
-├── Application/   ← Casos de uso
-└── Infrastructure/← Implementações reais (MySQL, HTTP, etc)
-
+├── Domain/         # Entidades + regras
+├── Application/    # Casos de uso
+└── Infrastructure/ # Implementações
+```
 
 ## app/ — Entrada, Fluxo HTTP e Views 
 
