@@ -123,8 +123,8 @@ function moneyToFloat($money): string
                             <tbody>                               
                                 <?php  foreach ($data['transactions'] as $transaction) { ?>
                                     <tr>
-                                        <td><?= $transaction->idPayer ?></td>
-                                        <td><?= $transaction->idPayee ?></td>
+                                        <td><?= $usersMap[$transaction->idPayer] ?></td>
+                                        <td><?= $usersMap[$transaction->idPayee] ?></td>
                                         <td><?= floatToMoney($transaction->value) ?></td>
                                         <td><?= $transaction->created_at ?></td>
                                     </tr>

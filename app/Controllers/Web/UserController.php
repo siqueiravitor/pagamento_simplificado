@@ -18,10 +18,12 @@ class UserController {
     public function index(): void {
         $transactions = self::getTransactions();
         $users = self::getUsers();
+        $usersMap = self::getUsersMap();
 
         ViewRenderer::render('user.index', [
             'transactions' => $transactions,
-            'users' => $users
+            'users' => $users,
+            'usersMap' => $usersMap
         ]);
     }
     public function deposit(array $params): void {
@@ -95,6 +97,24 @@ class UserController {
         try{
             $users = $userService->getAll();
             return $users;
+        } catch (Exception $e){
+            return [];
+        }
+    }
+    private function getUsersMap(): array{
+        $db = Database::connection();
+        $userRepo = new UserRepositoryImpl($db);
+        $userService = new UserService($userRepo);
+
+        try{
+            $users = $userService->getAll();
+            $map = json_encode($users);
+            $users = json_decode($map, true);
+            $map = [];
+            foreach ($users as $user) {
+                $map[$user['id']] = $user['name'];
+            }
+            return $map;
         } catch (Exception $e){
             return [];
         }
