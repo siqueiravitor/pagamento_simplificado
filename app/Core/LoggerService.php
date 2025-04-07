@@ -14,6 +14,7 @@ class LoggerService {
             'api' => $date . '/api.log',
             'auth' => $date . '/auth.log',
             'error' => $date . '/error.log',
+            'notify' => $date . '/notify.log',
             default => date('Y-m-d') . '.log'
         };
 

@@ -3,10 +3,12 @@
 namespace Application\Services;
 
 use Exception;
+use App\Core\LoggerService;
 use Domain\Entities\Transaction;
 use Domain\Repositories\UserRepository;
 use Domain\Repositories\WalletRepository;
 use Domain\Repositories\TransactionRepository;
+use Infrastructure\External\Clients\NotificationClient;
 use Infrastructure\External\Clients\AuthorizationClient;
 
 class TransferService {
@@ -19,6 +21,9 @@ class TransferService {
     public function execute(float $value, int $idPayer, int $idPayee){
         if($idPayer == $idPayee){
             throw new Exception("Não é possível transferir para si mesmo.");
+        }
+        if ($value <= 0) {
+            throw new Exception("Valor da transferência inválido.");
         }
 
         $payer = $this->userRepo->findById($idPayer);
@@ -46,8 +51,8 @@ class TransferService {
             throw new Exception("Saldo insuficiente.");
         }
         
-        $client = new AuthorizationClient();
-        if (!$client->isAuthorized()) {
+        $authClient = new AuthorizationClient();
+        if (!$authClient->isAuthorized()) {
             throw new Exception("Não autorizado.");
         }
         
@@ -66,6 +71,20 @@ class TransferService {
         );
 
         $this->transactionRepo->create($transaction);
+
+        try {
+            $notifyData = [
+                'id_payer' => $idPayer,
+                'id_payee' => $idPayee,
+                'value' => $value,
+                'message' => 'Transferência realizada com sucesso!'
+            ];
+            $notifier = new NotificationClient();
+            $notifier->notify($notifyData);
+            LoggerService::log('notify', json_encode($notifyData));
+        } catch (Exception $e) {
+            LoggerService::log('notify', $e->getMessage());
+        }
 
         return true;
     }

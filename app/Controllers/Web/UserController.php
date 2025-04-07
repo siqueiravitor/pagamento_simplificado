@@ -69,11 +69,11 @@ class UserController {
         try {
             $service->execute((float)$value, (int)$payer, (int)$payee);
             Session::flash('success', 'Transferência realizada com sucesso.');
-            Redirect::to('/dashboard');
         } catch (Exception $e) {
             Session::flash('error', $e->getMessage());
-            Redirect::to('/dashboard');
         }
+        
+        Redirect::to('/dashboard');
     }
 
     private function getTransactions(): array{
