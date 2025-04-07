@@ -38,6 +38,7 @@ src/
 ## Integrações Externas
 
 - `https://util.devi.tools/api/v2/authorize` (GET) → autorização da transação
+- `https://util.devi.tools/api/v1/notify` (POST) → envio de notificação
 
 ## Tecnologias Utilizadas
 
@@ -47,6 +48,11 @@ src/
 - Arquitetura DDD simplificada
 - Design Patterns: Repository, Service Layer
 - Integração com APIs externas
+
+## Testes (Não implementado)
+
+- Testes de unidade para lógica de negócio
+- Testes de integração simulando fluxo completo
 
 ## Outras Pastas
 
