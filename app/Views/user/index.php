@@ -33,13 +33,16 @@ function moneyToFloat($money): string
     <div id="layout-wrapper">
         <div class="row m-0 p-0 pt-3 justify-content-center align-items-start bg-dark bg-soft"
             style="min-height: 100svh;">
-           
-            <div class="col-md-4">
+            <div class="col-12 d-flex justify-content-center mb-5">
+                <div class="col-8">
+                    <?php FlashView::render(); ?>
+                </div>
+            </div>
+            <div class="col-xl-4 col-lg-5 col-md-6">
                 <div class="container card p-4 shadow-sm">
                     <div class="content-header mb-2 pb-2 mx-3 border-bottom">
                         <h4 class="mb-0 text-accent">Adicionar saldo</h4>
                     </div>
-                    <?php FlashView::render(); ?>
 
                     <form action="/deposit" method="POST" autocomplete="off" class="card-body">
                         <div class="form-group mb-3">
@@ -51,8 +54,9 @@ function moneyToFloat($money): string
                             <label>Usuário</label>
                             <select class="form-control flex-3" name="user" required>
                                 <option value="" selected disabled>Selecione</option>
-                                <?php  foreach ($data['users'] as $user) { ?>
-                                    <option value="<?= $user->id ?>"><?= ucfirst($user->type) . ' - ' . $user->name . ' - ' . $user->cpf_cnpj ?></option>
+                                <?php foreach ($data['users'] as $user) { ?>
+                                    <option value="<?= $user->id ?>">
+                                        <?= ucfirst($user->type) . ' - ' . $user->name . ' - ' . $user->cpf_cnpj ?></option>
                                 <?php } ?>
                             </select>
                         </div>
@@ -78,8 +82,9 @@ function moneyToFloat($money): string
                             <label>De</label>
                             <select class="form-control flex-3" name="payer" required>
                                 <option value="" selected disabled>Selecione</option>
-                                <?php  foreach ($data['users'] as $user) { ?>
-                                    <option value="<?= $user->id ?>"><?= ucfirst($user->type) . ' - ' . $user->name . ' - ' . $user->cpf_cnpj ?></option>
+                                <?php foreach ($data['users'] as $user) { ?>
+                                    <option value="<?= $user->id ?>">
+                                        <?= ucfirst($user->type) . ' - ' . $user->name . ' - ' . $user->cpf_cnpj ?></option>
                                 <?php } ?>
                             </select>
                         </div>
@@ -87,8 +92,9 @@ function moneyToFloat($money): string
                             <label>Para</label>
                             <select class="form-control flex-3" name="payee" required>
                                 <option value="" selected disabled>Selecione</option>
-                                <?php  foreach ($data['users'] as $user) { ?>
-                                    <option value="<?= $user->id ?>"><?= ucfirst($user->type) . ' - ' . $user->name . ' - ' . $user->cpf_cnpj ?></option>
+                                <?php foreach ($data['users'] as $user) { ?>
+                                    <option value="<?= $user->id ?>">
+                                        <?= ucfirst($user->type) . ' - ' . $user->name . ' - ' . $user->cpf_cnpj ?></option>
                                 <?php } ?>
                             </select>
                         </div>
@@ -100,8 +106,7 @@ function moneyToFloat($money): string
 
                 </div>
             </div>
-            <div class="col-md-4">
-                
+            <div class="col-xl-4 col-lg-5 col-md-6">
                 <div class="container card p-4 shadow-sm">
                     <div class="content-header mb-2 pb-2 mx-3 border-bottom">
                         <h4 class="mb-0 text-accent">Transferências</h4>
@@ -120,8 +125,8 @@ function moneyToFloat($money): string
                                     <th> Para </th>
                                 </tr>
                             </thead>
-                            <tbody>                               
-                                <?php  foreach ($data['transactions'] as $transaction) { ?>
+                            <tbody>
+                                <?php foreach ($data['transactions'] as $transaction) { ?>
                                     <tr>
                                         <td><?= $usersMap[$transaction->idPayer] ?></td>
                                         <td><?= $usersMap[$transaction->idPayee] ?></td>
