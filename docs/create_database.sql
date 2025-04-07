@@ -34,3 +34,11 @@ CREATE TABLE wallets (
 INSERT INTO users (name, cpf_cnpj, email, password, type) VALUES (
     'Vitor Siqueira', '12345678912', 'vitor@email.com', '$2y$10$WehX6.lwCaL.DWoepm6brOw/dSBvMdvHnS1JE/EUrGrpJ.Bw8bmRC', 'usuario'
 );
+
+INSERT INTO users (name, cpf_cnpj, email, password, type) VALUES (
+    'Lucas Vinicius', '21987654321', 'lucas@email.com', '$2y$10$WehX6.lwCaL.DWoepm6brOw/dSBvMdvHnS1JE/EUrGrpJ.Bw8bmRC', 'lojista'
+);
+
+INSERT INTO wallets (id_user, balance) VALUES 
+(1, 100)
+(2, 0);
