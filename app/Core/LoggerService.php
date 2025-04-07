@@ -17,8 +17,14 @@ class LoggerService {
             default => date('Y-m-d') . '.log'
         };
 
-        $file = self::$logDir . $filename;
-        $entry = "[" . date('H:i:s') . "] [$type] $message" . PHP_EOL;
-        file_put_contents($file, $entry, FILE_APPEND);
+        $filePath = self::$logDir . $filename;
+
+        $logDir = dirname($filePath);
+        if (!is_dir($logDir)) {
+            mkdir($logDir, 0777, true);
+        }
+
+        $entry = "[" . date('H:i:s', strtotime('-5 hour')) . "] [$type] $message" . PHP_EOL;
+        file_put_contents($filePath, $entry, FILE_APPEND);
     }
 }
