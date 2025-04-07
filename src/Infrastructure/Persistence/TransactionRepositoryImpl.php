@@ -16,7 +16,7 @@ class TransactionRepositoryImpl implements TransactionRepository {
     }
 
     public function findAll(): array {
-        $result = $this->db->query("SELECT id, id_payer, id_payee, value, created_at FROM transactions");
+        $result = $this->db->query("SELECT id, id_payer as idPayer, id_payee as idPayee, value, created_at FROM transactions");
         $rows = [];
         while ($row = $result->fetch_assoc()) {
             $rows[] = new Transaction(...$row);

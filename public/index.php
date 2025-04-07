@@ -2,11 +2,13 @@
 require __DIR__ . '/../vendor/autoload.php';
 
 use App\Controllers\Api\TransferController;
+use App\Controllers\Web\UserController;
 use App\Core\ResponseHelper;
 use App\Core\Router;
 use App\Core\Session;
 use App\Controllers\Web\AuthController;
 use App\Middlewares\ApiMiddleware;
+use App\Middlewares\AuthMiddleware;
 
 Session::start();
 
@@ -20,6 +22,12 @@ $router->get('/logout', [AuthController::class, 'logout']);
 $router->group('/api', function($router) {
     $router->post('/transfer', [TransferController::class, 'handle']);
 }, [new ApiMiddleware(), 'handle']);
+
+$router->group('', function($router) {
+    $router->get('/dashboard', [UserController::class, 'index']);
+    $router->post('/transferir-dinheiro', [UserController::class, 'transfer']);
+    $router->post('/depositar-dinheiro', [UserController::class, 'deposit']);
+}, [new AuthMiddleware(), 'handle']);
 
 
 $method = $_SERVER['REQUEST_METHOD'];
