@@ -13,7 +13,7 @@
 - [x] Criar estrutura de rotas e vincular `/transfer`
 - [ ] Tratamentos MySQL
 - [x] Criar cliente HTTP para autorização externa (`GET /authorize`)
-- [ ] Criar cliente HTTP para envio de notificação (`POST /notify`)
+- [x] Criar cliente HTTP para envio de notificação (`POST /notify`)
 - [x] Validar se o `payee` e `payer` existem e têm permissões corretas
 - [x] Impedir transferências do tipo "payer == payee"
 - [x] Verificar saldo disponível antes de transferir
@@ -30,3 +30,9 @@
 - [ ] Testes de integração (end-to-end `/transfer`)
 - [ ] Docker: `Dockerfile` + `docker-compose.yml` (PHP + MySQL)
 - [ ] Retry ou fallback para falha de notificação externa
+
+## Ajustes
+- [ ] Transferir apenas do usuário logado
+- [ ] Ver transferências apenas para casos onde o usuário logado tenha recebido ou feito a transferência
+- [ ] Adicionar cadastro de usuários e lojistas
+- [ ] Adicionar visualização de saldo do usuário logado
