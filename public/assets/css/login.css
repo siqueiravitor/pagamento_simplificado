@@ -1,0 +1,90 @@
+.step:not(.crossed) button {
+    cursor: default !important;
+}
+
+.step.active .bs-stepper-circle,
+.step.active .icon-base {
+    color: #fff !important;
+}
+
+.btn-prev,
+.btn-next {
+    display: flex;
+    align-items: center;
+}
+
+.form-group label {
+    letter-spacing: 0;
+}
+
+.form-group {
+    margin-bottom: 0;
+}
+
+p {
+    margin-bottom: .3rem;
+}
+
+fieldset {
+    border: 1px solid #bbb !important;
+    padding: 0 1.4em .4em 1.4em !important;
+    border-radius: 4px;
+    flex: 1 1 18rem;
+}
+
+legend {
+    font-size: 1.2em !important;
+    font-weight: bold !important;
+    text-align: left !important;
+    padding-left: 7px;
+    margin-left: -7px;
+    float: none;
+}
+
+.min-w-auto {
+    min-width: auto !important;
+}
+
+* {
+    --bs-box-shadow: 0 0.1875rem 0.5rem 0 rgba(34, 48, 62, 0.1);
+    --bs-paper-bg: #fff;
+}
+
+.bg-image {
+    background: url(../images/illustrations/website_builder.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+span.bs-stepper-title {
+    font-size: 0.8rem;
+}
+
+span.bs-stepper-subtitle {
+    font-size: 0.7rem !important;
+}
+
+i.icon-base {
+    font-size: 1.2rem;
+}
+
+.form-group {
+    flex: 1 1 14rem !important;
+}
+
+span.bs-stepper-circle {
+    margin: 0;
+}
+
+.footer-content {
+    position: relative;
+    display: flex;
+    width: 100%;
+    bottom: -2rem;
+    justify-content: space-between;
+}
+
+input.form-control {
+    min-width: auto !important;
+}
