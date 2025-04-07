@@ -41,7 +41,7 @@ function moneyToFloat($money): string
                     </div>
                     <?php FlashView::render(); ?>
 
-                    <form action="/depositar-dinheiro" method="POST" autocomplete="off" class="card-body">
+                    <form action="/deposit" method="POST" autocomplete="off" class="card-body">
                         <div class="form-group mb-3">
                             <label>Valor</label>
                             <input name="value" class="form-control" placeholder="R$ 0,00" onkeyup="moneyMask(this)"
@@ -68,7 +68,7 @@ function moneyToFloat($money): string
                     </div>
                     <?php FlashView::render(); ?>
 
-                    <form action="/transferir-dinheiro" method="POST" autocomplete="off" class="card-body">
+                    <form action="/transfer" method="POST" autocomplete="off" class="card-body">
                         <div class="form-group mb-3">
                             <label>Valor</label>
                             <input name="value" class="form-control" placeholder="R$ 0,00" onkeyup="moneyMask(this)"

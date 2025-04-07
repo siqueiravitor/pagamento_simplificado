@@ -25,8 +25,8 @@ $router->group('/api', function($router) {
 
 $router->group('', function($router) {
     $router->get('/dashboard', [UserController::class, 'index']);
-    $router->post('/transferir-dinheiro', [UserController::class, 'transfer']);
-    $router->post('/depositar-dinheiro', [UserController::class, 'deposit']);
+    $router->post('/transfer', [UserController::class, 'transfer']);
+    $router->post('/deposit', [UserController::class, 'deposit']);
 }, [new AuthMiddleware(), 'handle']);
 
 
