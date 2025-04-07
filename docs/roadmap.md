@@ -36,3 +36,4 @@
 - [ ] Ver transferências apenas para casos onde o usuário logado tenha recebido ou feito a transferência
 - [ ] Adicionar cadastro de usuários e lojistas
 - [ ] Adicionar visualização de saldo do usuário logado
+- [ ] Adicionar migration para criação automática do banco de dados
