@@ -37,3 +37,20 @@
 - [ ] Adicionar cadastro de usuários e lojistas
 - [ ] Adicionar visualização de saldo do usuário logado
 - [ ] Adicionar migration para criação automática do banco de dados
+
+- [ ] Adição de testes automatizados
+    Incluir testes unitários e de integração com PHPUnit para validar regras de negócio e melhorar a confiabilidade do sistema.
+    Referência: https://phpunit.de/documentation.html
+- [ ] Documentação limitada | Adicionar exemplos de requisição
+    Considerar ferramentas como Swagger UI ou Laravel Scribe para gerar documentação interativa.
+- [ ] Melhorar tratamento de exceções
+    Implementar tratamento de exceções mais granular, com códigos de status adequados (400, 404, 422, 500, etc).
+    Referência: https://restfulapi.net/http-status-codes/
+- [ ] Transação de banco de dados acoplada ao service
+    Isolar o controle de transação em uma camada superior ou utilizar um handler para encapsular a execução de blocos transacionais.
+- [ ] Controle de saldo sem proteção contra concorrência
+    Utilizar SELECT ... FOR UPDATE ou mecanismos de pessimistic/optimistic locking para garantir consistência.
+    Referência: https://medium.com/@abhirup.acharya009/managing-concurrent-access-optimistic-locking-vs-pessimistic-locking-0f6a64294db7
+- [ ] Notificação acoplada temporalmente à transferência
+    Desacoplar esse processo utilizando queues ou event listeners para garantir fluidez e resiliência.
+    Referência: https://laravel.com/docs/10.x/queues
